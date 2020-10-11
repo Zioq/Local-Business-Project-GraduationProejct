@@ -10,16 +10,6 @@ const Styles = styled.div`
     background-repeat: repeat;
     background-position: center;
   }
-  .container .p {
-    padding-top: 35px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 45px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #c05deb;
-    margin: auto;
-  }
 `;
 
 function Jumobtron() {
