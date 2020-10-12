@@ -11,6 +11,7 @@ import NoMatch from "./components/NoMatch";
 import Reservation from "./components/Reservation";
 import Table from "./components/Table";
 import Navigation from "./components/Navigation";
+import EmployeeNavigation from "./components/EmployeeNavigation";
 
 
 //Voice Recognition
@@ -30,7 +31,8 @@ function App() {
           <Route path="/Home"  component={Home} />
           <Route path="/Reservation" component={Reservation}/>
           <Route path="/Table" component={Table} />
-          <Route path="/Admin" component={Admin} />          
+          <Route path="/Admin" component={Admin} />
+          <Route path="/EmployeeNavigation" component = {EmployeeNavigation} />          
           <Route component={NoMatch} />
         </Switch>
       </Router>
