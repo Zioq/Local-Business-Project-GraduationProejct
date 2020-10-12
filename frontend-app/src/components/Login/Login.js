@@ -31,10 +31,11 @@ class Login extends Component {
           alert("Login Failed");
         }
       });
-    } 
+    } else {
+      alert("Enter your passcode and passcodepassword");
+    }
     //console.log("Login function");
     //console.log(this.state);
-
     e.preventDefault();
   }
 
@@ -53,7 +54,13 @@ class Login extends Component {
   render() {
     if(this.state.redirect) {
       return (
-        <Redirect to= {'/EmployeeNavigation'} />
+        <Redirect to= {'/AdminHome'} />
+      ) 
+    }
+
+    if(sessionStorage.getItem("userData")) {
+      return (
+        <Redirect to= {'/AdminHome'} />
       ) 
     }
 

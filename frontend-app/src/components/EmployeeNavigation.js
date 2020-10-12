@@ -6,7 +6,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 function EmployeeNavigation() {
   return (
     <div className="Navigation">
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark2" variant="dark">
         <Navbar.Brand href="/">Guu Garden :)</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -27,7 +27,7 @@ function EmployeeNavigation() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/Admin">Employee</Nav.Link>
+            <Nav.Link href="/Admin">Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

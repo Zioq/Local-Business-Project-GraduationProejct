@@ -40,9 +40,13 @@
 body {
   background-color: rgb(235, 235, 33) !important;
 }
-
 body .bg-dark {
-  background-color: black !important;
-  margin-bottom: 100px;
+  background-color: rgb(0, 0, 0) !important;
+  margin-bottom: 50px;
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+body .bg-dark2 {
+  background-color: rgb(141, 25, 25) !important;
+  margin-bottom: 50px;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
