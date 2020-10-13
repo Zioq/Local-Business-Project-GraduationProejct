@@ -2,7 +2,8 @@ import React from "react";
 import "../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-
+import EmployeeManage from "./Employee/EmployeeManage";
+// change it to the Class not a function.
 function EmployeeNavigation() {
   return (
     <div className="Navigation">
@@ -15,7 +16,7 @@ function EmployeeNavigation() {
             <Nav.Link href="Admin/Check_Order">Reservation Management</Nav.Link>
             <Nav.Link href="Admin/Table_Management">Check Table</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Employee Management</NavDropdown.Item>
+              <NavDropdown.Item href={"/EmployeeManage"}>Employee Management</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>

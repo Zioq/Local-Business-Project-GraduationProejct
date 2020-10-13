@@ -12,7 +12,7 @@ import Table from "./components/Table";
 import Navigation from "./components/Navigation";
 import EmployeeNavigation from "./components/EmployeeNavigation";
 import AdminHome from "./components/AdminHome";
-
+import EmployeeManage from "./components/Employee/EmployeeManage";
 //Voice Recognition
 
 function App() {
@@ -28,8 +28,9 @@ function App() {
             <Route path="/Reservation" component={Reservation} />
             <Route path="/Table" component={Table} />
             <Route path="/Admin" component={Admin} />
-            <Route path="/EmployeeNavigation" component={EmployeeNavigation} />
             <Route path="/AdminHome" component={AdminHome} />
+            <Route path= "/EmployeeManage" component={EmployeeManage} />
+
           </Switch>
         </Router>
       </div>
