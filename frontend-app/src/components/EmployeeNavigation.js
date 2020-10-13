@@ -16,12 +16,12 @@ function EmployeeNavigation() {
             <Nav.Link href="Admin/Check_Order">Reservation Management</Nav.Link>
             <Nav.Link href="Admin/Table_Management">Check Table</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+              <NavDropdown.Item href={"/AddNewEmployee"}>Add New Employee</NavDropdown.Item>
               <NavDropdown.Item href={"/EmployeeManage"}>Employee Management</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href= "#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.3">
+                Another action
+              </NavDropdown.Item>              
               <NavDropdown.Item href="#action/3.4">
                 Separated link
               </NavDropdown.Item>

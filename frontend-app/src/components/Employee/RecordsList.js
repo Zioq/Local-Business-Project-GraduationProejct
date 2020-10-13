@@ -40,7 +40,7 @@ class RecordsList extends Component {
                     {this.props.obj.employeePhone}
                 </td>
                 <td>
-                    <Link to={"/edit/" +this.props.obj.employeeId} className = "btn btn-primary"> Edit</Link>
+                    <Link to={"/EmployeeManage/Edit" +this.props.obj.employeeId} className = "btn btn-primary"> Edit</Link>
                 </td>
                 <td>
                     <button onClick={this.delete} className = "btn btn-danger"> Delete</button>
