@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import EmployeeEdit from "./components/Employee/EmployeeEdit";
 
 //import page navigator componenets
 import Main from "./components/Main";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/AdminHome" component={AdminHome} />
             <Route path= "/EmployeeManage" component={EmployeeManage} />
             <Route path= "/AddNewEmployee" component={AddNewEmployee} />
+            <Route path= "/EmployeeManage/Edit/:id" component={EmployeeEdit} />
 
           </Switch>
         </Router>

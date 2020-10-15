@@ -25,7 +25,7 @@ class RecordsList extends Component {
 
         const {redirect} =this.state;
         if(redirect) {
-            return < Redirect to='/EmployeeView'/>
+            return < Redirect to='/EmployeeManage'/>
         }
 
         return (  
