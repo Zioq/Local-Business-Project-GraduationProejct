@@ -82,7 +82,7 @@ class EmployeeEdit extends Component {
 
     const {redirect} =this.state;
     if(redirect) {
-        return < Redirect to='/Admin'/>
+        return < Redirect to='/EmployeeManage'/>
     }
     return (
       <div style={{ marginTop: 10 }} className="w-50 p-3">

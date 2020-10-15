@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import EmployeeEdit from "./components/Employee/EmployeeEdit";
 
 //import page navigator componenets
 import Main from "./components/Main";
@@ -15,6 +14,7 @@ import EmployeeNavigation from "./components/EmployeeNavigation";
 import AdminHome from "./components/AdminHome";
 import EmployeeManage from "./components/Employee/EmployeeManage";
 import AddNewEmployee from "./components/Employee/AddNewEmployee";
+import EmployeeEdit from "./components/Employee/EmployeeEdit";
 //Voice Recognition
 
 function App() {
@@ -33,8 +33,7 @@ function App() {
             <Route path="/AdminHome" component={AdminHome} />
             <Route path= "/EmployeeManage" component={EmployeeManage} />
             <Route path= "/AddNewEmployee" component={AddNewEmployee} />
-            <Route path= "/EmployeeManage/Edit/:id" component={EmployeeEdit} />
-
+            <Route path="/edit/:id" component={EmployeeEdit} />
           </Switch>
         </Router>
       </div>
