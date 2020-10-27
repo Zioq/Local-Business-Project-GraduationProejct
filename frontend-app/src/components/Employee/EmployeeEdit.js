@@ -86,7 +86,7 @@ class EmployeeEdit extends Component {
     }
     return (
       <div style={{ marginTop: 10 }} className="w-50 p-3">
-        <h3> Add New Employee</h3>
+        <h3> Edit Employee</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group-3">
             <label>Name: </label>

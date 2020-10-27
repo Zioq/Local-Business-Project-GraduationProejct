@@ -12,7 +12,7 @@ function EmployeeNavigation() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="Admin/Menu">Check Menu</Nav.Link>
+            <Nav.Link href={"/Menu"}>Check Menu</Nav.Link>
             <Nav.Link href="Admin/Check_Order">Reservation Management</Nav.Link>
             <Nav.Link href="Admin/Table_Management">Check Table</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">

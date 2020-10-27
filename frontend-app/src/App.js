@@ -15,6 +15,8 @@ import AdminHome from "./components/AdminHome";
 import EmployeeManage from "./components/Employee/EmployeeManage";
 import AddNewEmployee from "./components/Employee/AddNewEmployee";
 import EmployeeEdit from "./components/Employee/EmployeeEdit";
+import Menu from "./components/Menu/MenuView";
+
 //Voice Recognition
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
             <Route path= "/EmployeeManage" component={EmployeeManage} />
             <Route path= "/AddNewEmployee" component={AddNewEmployee} />
             <Route path="/edit/:id" component={EmployeeEdit} />
+            <Route path="/Menu" component={Menu} />
           </Switch>
         </Router>
       </div>
