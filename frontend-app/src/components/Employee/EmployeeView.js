@@ -8,7 +8,7 @@ class EmployeeView extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8888/reactJsCRUD/list.php')
+        axios.get('http://localhost:8888/reactJsCRUD/EmployeeCRUD/list.php')
          .then(response=> {
              this.setState( {employees:response.data});
          })

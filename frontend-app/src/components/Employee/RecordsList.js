@@ -14,7 +14,7 @@ class RecordsList extends Component {
     }
 
     delete() {
-        axios.get('http://localhost:8888/reactJsCRUD/delete.php?id='+this.props.obj.employeeId)
+        axios.get('http://localhost:8888/reactJsCRUD/EmployeeCRUD/delete.php?id='+this.props.obj.employeeId)
          .then(
              this.setState({redirect: true})
          )

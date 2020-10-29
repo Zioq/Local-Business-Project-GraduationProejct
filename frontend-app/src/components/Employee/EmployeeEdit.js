@@ -21,7 +21,7 @@ class EmployeeEdit extends Component {
   componentDidMount() {
     axios
       .get(
-        "http://localhost:8888/reactJsCRUD/getById.php?id="+this.props.match.params.id)
+        "http://localhost:8888/reactJsCRUD/EmployeeCRUD/getById.php?id="+this.props.match.params.id)
       .then((response) => {
         console.log(response.data.employeeName);
         this.setState({
@@ -70,7 +70,7 @@ class EmployeeEdit extends Component {
       passcode: this.state.passcode,
     };
     console.log(obj);
-    axios.post("http://localhost:8888/reactJsCRUD/update.php?id=" + this.props.match.params.id, obj)
+    axios.post("http://localhost:8888/reactJsCRUD/EmployeeCRUD/update.php?id=" + this.props.match.params.id, obj)
       .then(res=> {
         if(res.status) {
           this.setState({redirect:true});
