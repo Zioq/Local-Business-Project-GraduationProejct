@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import EmployeeNavigation from "../EmployeeNavigation";
 import {Accordion,Card} from 'react-bootstrap';
+import FoodMenu from './FoodMenu';
 
 class MenuView extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class MenuView extends Component {
               Food Category
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body</Card.Body>
+              <Card.Body>Hello! I'm the body
+              <FoodMenu />
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
           <Card>
