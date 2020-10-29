@@ -14,7 +14,7 @@ class FoodMenuRecordsList extends Component {
     }
     
     delete() {
-        axios.get('http://localhost:8888/reactJsCRUD/delete.php?id='+this.props.obj.employeeId)
+        axios.get('hhttp://localhost:8888/reactJsCRUD/FoodCRUD/drinkDelete.php?id='+this.props.obj.drinkId)
          .then(
              this.setState({redirect: true})
          )
@@ -25,7 +25,7 @@ class FoodMenuRecordsList extends Component {
 
         const {redirect} =this.state;
         if(redirect) {
-            return < Redirect to='/AdminHome'/>
+            return < Redirect to='/Menu'/>
         }
 
         return (  
