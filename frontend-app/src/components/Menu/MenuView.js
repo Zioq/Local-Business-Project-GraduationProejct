@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import EmployeeNavigation from "../EmployeeNavigation";
 import {Accordion,Card} from 'react-bootstrap';
 import FoodMenu from './FoodMenu';
+import  DrinkMenu from './DrinkMenu';
 
 class MenuView extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class MenuView extends Component {
               Food Category
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="0">
-              <Card.Body>Hello! I'm the body
+              <Card.Body>
               <FoodMenu />
               </Card.Body>
             </Accordion.Collapse>
@@ -30,7 +31,9 @@ class MenuView extends Component {
               Drink Category
             </Accordion.Toggle>
             <Accordion.Collapse eventKey="1">
-              <Card.Body>Hello! I'm another body</Card.Body>
+              <Card.Body>
+              <DrinkMenu />
+              </Card.Body>
             </Accordion.Collapse>
           </Card>
         </Accordion>

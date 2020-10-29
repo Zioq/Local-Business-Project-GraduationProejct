@@ -1,19 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
-import MenuRecordsList from './MenuRecordsList';
+import FoodMenuRecordsList from './FoodMenuRecordsList';
 
 class FoodMenu extends Component {
     
     constructor(props) {
         super(props);
-        this.state =  {menus:[]};
+        this.state =  {FoodMenus:[]};
     }
 
 
     componentDidMount() {
-        axios.get('http://localhost:8888/reactJsCRUD/FoodCRUD/munuList.php')
+        axios.get('http://localhost:8888/reactJsCRUD/FoodCRUD/foodMenuList.php')
          .then(response=> {
-             this.setState( {menus:response.data});
+             this.setState( {FoodMenus:response.data});
          })
          .catch(function (error) {
              console.log(error);
@@ -21,8 +21,8 @@ class FoodMenu extends Component {
     }
 
     menuList() {
-        return this.state.menus.map(function(object,i) {
-            return <MenuRecordsList obj ={object} key = {i} />;
+        return this.state.FoodMenus.map(function(object,i) {
+            return <FoodMenuRecordsList obj ={object} key = {i} />;
         });
     }
 

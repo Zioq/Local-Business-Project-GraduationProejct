@@ -4,7 +4,7 @@ import {Redirect} from 'react-router';
 import {Link} from 'react-router-dom';
 
 
-class RecordsList extends Component {
+class FoodMenuRecordsList extends Component {
     constructor(props) {
         super (props);
         this.delete = this.delete.bind(this);
@@ -25,7 +25,7 @@ class RecordsList extends Component {
 
         const {redirect} =this.state;
         if(redirect) {
-            return < Redirect to='/EmployeeManage'/>
+            return < Redirect to='/AdminHome'/>
         }
 
         return (  
@@ -53,4 +53,4 @@ class RecordsList extends Component {
     }
 }
  
-export default RecordsList;
+export default FoodMenuRecordsList;
