@@ -4,10 +4,11 @@ import styled from "styled-components";
 const Styles = styled.div`
 
 .weatherContainer {
-    width: 300px;
+    width: 350px;
     height: 260px;
     padding: 20px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    background-color: 	rgb(255,215,0);
 }
 
 .weatherContainer h2 {
@@ -25,6 +26,7 @@ const Styles = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+   
 }
 
 .weatherContainer {

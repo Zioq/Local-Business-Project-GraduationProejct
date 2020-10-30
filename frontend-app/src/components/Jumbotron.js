@@ -1,11 +1,11 @@
 import React from "react";
 import { Jumbotron as Jumbo, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
-import voiceImage from "../Images/main.png";
+import bgImage from "../Images/main.png";
 
 const Styles = styled.div`
   .jumbo {
-    background: url(${voiceImage});
+    background: url(${bgImage});
     background-size: cover;
     background-repeat: repeat;
     background-position: center;

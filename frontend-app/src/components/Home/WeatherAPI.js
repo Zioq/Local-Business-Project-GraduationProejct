@@ -47,13 +47,17 @@ class WeatherAPI extends Component {
 
   kelvinToCelsius = (k) => {
     return (k - 273.15).toFixed(0);
-  } 
+  };
 
   render() {
     return (
       <>
-        <h1>This is weatherAPI component </h1>
-        <RenderingHTML temperature= {this.state.temperature} weather= {this.state.weather} img ={this.state.img}/>
+        <h3>Welcome to Guu garden! </h3>
+        <RenderingHTML
+          temperature={this.state.temperature}
+          weather={this.state.weather}
+          img={this.state.img}
+        />
       </>
     );
   }
