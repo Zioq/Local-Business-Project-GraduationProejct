@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { Component } from "react";
+import WeatherAPI from "./Home/WeatherAPI";
 
-function Home() {
+class Home extends Component {
+  state = {
+
+  };
+
+  render() {
     return (
-        <div>
-            <h1> This is Home page</h1>
-        </div>
-
-    )
+      <>
+        <h1>This is Home</h1>
+        <WeatherAPI />
+      </>
+    );
+  }
 }
 
 export default Home;

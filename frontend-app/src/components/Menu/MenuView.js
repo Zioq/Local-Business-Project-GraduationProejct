@@ -14,7 +14,7 @@ class MenuView extends Component {
     return (
       <div>
         <EmployeeNavigation />
-        <h3>Let's rendering food</h3>
+        <h3>Menu Management</h3>
         <Accordion defaultActiveKey="0">
           <Card>
             <Accordion.Toggle as={Card.Header} eventKey="0">

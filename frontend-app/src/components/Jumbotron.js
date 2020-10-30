@@ -1,14 +1,28 @@
 import React from "react";
 import { Jumbotron as Jumbo, Container, Button } from "react-bootstrap";
 import styled from "styled-components";
-import voiceImage from "../Images/voice.png";
+import voiceImage from "../Images/main.png";
 
 const Styles = styled.div`
   .jumbo {
     background: url(${voiceImage});
-    background-size: contain;
+    background-size: cover;
     background-repeat: repeat;
     background-position: center;
+  }
+  .container {
+    font: bold;
+    color:  #3366cc;
+  }
+  h3 {
+    font-style: oblique;
+    font-weight: bold;
+    color: #3333cc;
+    
+  }
+  h2 {
+    color: #3366cc;
+    font-weight: bold;
   }
 `;
 
@@ -18,15 +32,14 @@ function Jumobtron() {
       <Jumbo fluid className="jumbo">
         <div className="overlay"></div>
         <Container className="container">
-          <h1>Welcome to Guu Garden!</h1>
-          <p>
-            This page use voice Recognition.Just speak! we will open new pages
-            for you!
-          </p>
-          <p>*Tips*</p>
-          <p>For main page: speak "Go home"</p>
-          <p>For check reservation: speak "Reservation"</p>
-          <p>For ehcek tables: speak "Table"</p>
+          <h1>Just Speak! We will guide you!</h1>
+          <h2>
+            This page use voice Recognition.   Just speak! we will guide you!
+          </h2>
+          <h3>*Tips*</h3>
+          <h3>For main page: speak "Go home"</h3>
+          <h3>For check reservation: speak "Reservation"</h3>
+          <h3>For ehcek tables: speak "Table"</h3>
         </Container>
       </Jumbo>
     </Styles>
