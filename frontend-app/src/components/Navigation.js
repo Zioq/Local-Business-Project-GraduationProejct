@@ -15,9 +15,9 @@ function Navigation() {
             <Nav.Link href="/Reservation">Reservation</Nav.Link>
             <Nav.Link href="/Table">Table</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Menu</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+                Make Order
               </NavDropdown.Item>
               <NavDropdown.Item href= "#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />

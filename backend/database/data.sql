@@ -209,7 +209,7 @@ insert into Seat (seatId, seatName, seatOccupied) value (21, 'P9',0);
 insert into Seat (seatId, seatName, seatOccupied) value (22, 'P10',0);
 
 /*Orders Data*/
-/*insert into Orders (orderId, seatId, employeeId, orderTime, totalPrice, orderPaid) values (1,1,1,'2020-09-28',8.00,0);*/
+insert into Orders (orderId, seatId, employeeId, orderTime, totalPrice, orderPaid) values (1,1,1,'2020-09-28',8.00,0);
 
 /*FoodOrder Data */
-/*insert into FoodOrder (foodOrderId, orderId, foodId, foodQuantity, totalPrice) values(1,1,1,1,8.00);*/
+insert into FoodOrder (foodOrderId, orderId, foodId, foodQuantity, totalPrice) values(1,1,1,1,8.00);
