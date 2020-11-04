@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "CSIS 4495 Project",
   "main": "index.js",
-  "engine":{
+  "engine": {
     "node": "12.18.2",
     "npm": "6.14.5"
   },
   "scripts": {
     "start": "node server/index.js",
-    "backend": "nodemon server/index.js"
+    "backend": "nodemon server/index.js",
+    "frondend": "npm run start --prefix frontend-app",
+    "dev": "concurrently \"npm run backend\" \"npm run start --prefix frontend-app\""
   },
   "repository": {
     "type": "git",
@@ -24,8 +26,10 @@
   "dependencies": {
     "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.11"
   },
