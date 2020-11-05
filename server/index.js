@@ -96,6 +96,13 @@ app.get("/api/users/logout", auth,(req,res)=> {
   });
 });
 
+//Use Router to seperate a lot of request (check 'routes' folder)
+app.use('/api/product', require('./routes/product'));
+
+//use this to show the image you have in node js server to client (react js)
+//https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
+app.use('/uploads', express.static('uploads'));
+
 
 //Instead of localhost 5000, use heroku
 //app.listen(5000);

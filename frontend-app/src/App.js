@@ -18,6 +18,7 @@ import EmployeeEdit from "./components/Employee/EmployeeEdit";
 import Menu from "./components/Menu/MenuView";
 import Login from "./components/LoginPage/LoginPage";
 import Register from "./components/RegisterPage/RegisterPage";
+import UploadProductPage from "./components/UploadProductPage/UploadProductPage";
 
 //Voice Recognition
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/Menu" component={Menu} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/product/upload" component= {UploadProductPage} />
 
           </Switch>
         </Router>

@@ -19,8 +19,8 @@ function EmployeeNavigation() {
               <NavDropdown.Item href={"/AddNewEmployee"}>Add New Employee</NavDropdown.Item>
               <NavDropdown.Item href={"/EmployeeManage"}>Employee Management</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">
-                Another action
+              <NavDropdown.Item href={"/product/upload"}>
+                Add New Menu
               </NavDropdown.Item>              
               <NavDropdown.Item href="#action/3.4">
                 Separated link
