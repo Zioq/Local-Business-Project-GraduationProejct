@@ -27,7 +27,7 @@ function Navigation() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="/Admin">Employee</Nav.Link>
+            <Nav.Link href="/login">Employee</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
