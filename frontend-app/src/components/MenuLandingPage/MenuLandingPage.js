@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
+
 import { Icon, Card, Col, Row } from "antd";
 import ImageSlider from "../../components/Utils/ImageSlider";
+import Checkbox from "./Sections/CheckBox";
+import {foods} from "./Sections/Datas";
+
 //To get the data from DB, use axios
 import axios from "axios";
 
@@ -12,6 +16,10 @@ function MenuLandingPage() {
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState(0);
+  const [Filters, setFilters] = useState({
+    foods:[],
+    price:[]
+  });
 
   useEffect(() => {
     // To make a body make rendering 8 items at first
@@ -64,6 +72,27 @@ function MenuLandingPage() {
     );
   });
 
+  const showFilteredResults = (filters) => {
+
+    let body = {
+      skip: 0,
+      limit: Limit,
+      filters: filters
+    };
+
+
+    getProducts(body)
+    setSkip(0)
+  }
+
+  const handleFilters  = (filters, category) => {
+      const newFilters = { ...Filters };
+
+      newFilters[category] = filters;
+
+      showFilteredResults(newFilters)
+  }
+
   return (
     <div style={{ width: "100%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
@@ -74,7 +103,12 @@ function MenuLandingPage() {
 
       {/* Filter */}
 
+
       {/*CheckBox */}
+      <Checkbox list= {foods} handleFilters={filters => handleFilters(filters,"foods")}/>
+
+      {/*RadioBox */}
+
       {/* Search */}
 
       {/* Card */}
