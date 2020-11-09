@@ -1,11 +1,11 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Icon, Col, Card, Row, Carousel } from "antd";
+import { Icon, Card, Col, Row } from "antd";
 
 //To get the data from DB, use axios
 import axios from "axios";
-const { Meta } = Card;
 
+const { Meta } = Card;
 function MenuLandingPage() {
   const [Products, setProducts] = useState([]);
 
@@ -24,13 +24,14 @@ function MenuLandingPage() {
   const renderCards = Products.map((product, index) => {
     console.log("product", product);
     return (
-      <Card cover={<img src= {`http://localhost:5000/${product.images}`}/>} >
-        <Meta  
-            title = {product.title}
-            description = {`$${product.price}`}
-
-        />
-      </Card>
+      <Col lg={6} md={8} xs={24} key={index}>
+        <Card
+          key={index}
+          cover={<img src={`http://localhost:5000/${product.images}`} />}
+        >
+          <Meta title={product.title} description={`$${product.price}`} />
+        </Card>
+      </Col>
     );
   });
 
@@ -49,8 +50,7 @@ function MenuLandingPage() {
       {/* Search */}
 
       {/* Card */}
-      {renderCards}
-
+      <Row gutter={[16, 16]}>{renderCards}</Row>
       <br />
 
       <div style={{ display: "flex", justifyContent: "center" }}>

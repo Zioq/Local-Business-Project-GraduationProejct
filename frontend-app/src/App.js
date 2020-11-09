@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'antd/dist/antd.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 //import page navigator componenets
@@ -24,10 +25,10 @@ import UploadProductPage from "./components/UploadProductPage/UploadProductPage"
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Navigation />
 
-      <div className="container">
+      <div className="container" style={{ paddingTop: '10px', minHeight: 'calc(100vh - 80px)' }}>
         <Router>
           <Switch>
             <Route exact path="/" component={Main} />
@@ -47,7 +48,7 @@ function App() {
           </Switch>
         </Router>
       </div>
-    </div>
+    </>
   );
 }
 
