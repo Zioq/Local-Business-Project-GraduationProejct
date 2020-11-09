@@ -11,6 +11,7 @@ function MenuLandingPage() {
   const [Products, setProducts] = useState([]);
   const [Skip, setSkip] = useState(0);
   const [Limit, setLimit] = useState(8);
+  const [PostSize, setPostSize] = useState(0);
 
   useEffect(() => {
     // To make a body make rendering 8 items at first
@@ -27,12 +28,12 @@ function MenuLandingPage() {
     //request product data (check the route in the back-end)
     axios.post("api/product/products", body).then((response) => {
       if (response.data.success) {
-        if(body.loadMore) {
-            setProducts([...Products,...response.data.productInfo])
+        if (body.loadMore) {
+          setProducts([...Products, ...response.data.productInfo]);
         } else {
-            setProducts(response.data.productInfo);
+          setProducts(response.data.productInfo);
         }
-     
+        setPostSize(response.data.postSize);
       } else {
         alert("fail to get the data");
       }
@@ -45,7 +46,7 @@ function MenuLandingPage() {
     let body = {
       skip: skip,
       limit: Limit,
-      loadMore: true
+      loadMore: true,
     };
 
     getProducts(body);
@@ -81,10 +82,11 @@ function MenuLandingPage() {
       <Row gutter={[16, 16]}>{renderCards}</Row>
 
       <br />
-
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <button onClick={loadMoreHandler}> Show more </button>
-      </div>
+      {PostSize >= Limit && 
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button onClick={loadMoreHandler}> Show more </button>
+        </div>
+      }
     </div>
   );
 }
