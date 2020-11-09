@@ -46,12 +46,15 @@ router.post("/", (req, res) => {
 
 router.post("/products", (req, res) => {
   
-
+   // get the body what send from front-end
+   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
+   let skip = req.body.skip  ? parseInt(req.body.skip) :0;
   
   // Get all data from product collection
   // Find all data from `Product` collection
   Product.find()
-
+    .skip(skip)
+    .limit(limit)
     .exec((err,productInfo)=> {
       if(err) return res.status(400).json({success:false, err});
       return res.status(200).json({success:true, productInfo});

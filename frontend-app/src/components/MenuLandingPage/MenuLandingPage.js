@@ -1,34 +1,62 @@
 import React, { useEffect, useState } from "react";
 
 import { Icon, Card, Col, Row } from "antd";
-
+import ImageSlider from "../../components/Utils/ImageSlider";
 //To get the data from DB, use axios
 import axios from "axios";
 
 const { Meta } = Card;
+
 function MenuLandingPage() {
   const [Products, setProducts] = useState([]);
+  const [Skip, setSkip] = useState(0);
+  const [Limit, setLimit] = useState(8);
 
   useEffect(() => {
-    axios.post("api/product/products").then((response) => {
-      if (response.data.success) {
-        console.log(response.data);
+    // To make a body make rendering 8 items at first
 
-        setProducts(response.data.productInfo);
+    let body = {
+      skip: Skip,
+      limit: Limit,
+    };
+
+    getProducts(body);
+  }, []);
+
+  const getProducts = (body) => {
+    //request product data (check the route in the back-end)
+    axios.post("api/product/products", body).then((response) => {
+      if (response.data.success) {
+        if(body.loadMore) {
+            setProducts([...Products,...response.data.productInfo])
+        } else {
+            setProducts(response.data.productInfo);
+        }
+     
       } else {
-        alert("Failed to get the data");
+        alert("fail to get the data");
       }
     });
-  }, []);
+  };
+
+  const loadMoreHandler = () => {
+    let skip = Skip + Limit;
+
+    let body = {
+      skip: skip,
+      limit: Limit,
+      loadMore: true
+    };
+
+    getProducts(body);
+    setSkip(skip);
+  };
 
   const renderCards = Products.map((product, index) => {
     console.log("product", product);
     return (
       <Col lg={6} md={8} xs={24} key={index}>
-        <Card
-          key={index}
-          cover={<img src={`http://localhost:5000/${product.images}`} />}
-        >
+        <Card cover={<ImageSlider images={product.images} />}>
           <Meta title={product.title} description={`$${product.price}`} />
         </Card>
       </Col>
@@ -36,25 +64,26 @@ function MenuLandingPage() {
   });
 
   return (
-    <div style={{ width: "75%", margin: "3rem auto" }}>
+    <div style={{ width: "100%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
         <h2>
-          Get What you want to eat <Icon type="shop" />{" "}
+          Get What you want to <Icon type="shopping-cart" />{" "}
         </h2>
       </div>
 
       {/* Filter */}
 
       {/*CheckBox */}
-
       {/* Search */}
 
       {/* Card */}
+
       <Row gutter={[16, 16]}>{renderCards}</Row>
+
       <br />
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <button> Show more </button>
+        <button onClick={loadMoreHandler}> Show more </button>
       </div>
     </div>
   );
