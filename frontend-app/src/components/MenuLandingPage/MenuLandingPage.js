@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-
 import { Icon, Card, Col, Row } from "antd";
 import ImageSlider from "../../components/Utils/ImageSlider";
 import Checkbox from "./Sections/CheckBox";
-import {foods} from "./Sections/Datas";
+import RadioBox from "./Sections/RadioBox";
+import { foods, price } from "./Sections/Datas";
 
 //To get the data from DB, use axios
 import axios from "axios";
@@ -17,8 +17,8 @@ function MenuLandingPage() {
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState(0);
   const [Filters, setFilters] = useState({
-    foods:[],
-    price:[]
+    foods: [],
+    price: [],
   });
 
   useEffect(() => {
@@ -73,25 +73,40 @@ function MenuLandingPage() {
   });
 
   const showFilteredResults = (filters) => {
-
     let body = {
       skip: 0,
       limit: Limit,
-      filters: filters
+      filters: filters,
     };
 
+    getProducts(body);
+    setSkip(0);
+  };
 
-    getProducts(body)
-    setSkip(0)
+  const handlPrice = (value) => {
+    const data = price;
+    let array = [];
+    for (let key in data) {
+      if(data[key]._id === parseInt(value,10)) {
+        array = data[key].array;
+      }
+    }
+    return array;
   }
 
-  const handleFilters  = (filters, category) => {
-      const newFilters = { ...Filters };
+  const handleFilters = (filters, category) => {
+    const newFilters = { ...Filters };
 
-      newFilters[category] = filters;
+    newFilters[category] = filters;
 
-      showFilteredResults(newFilters)
-  }
+    if(category === "price") {
+      let priceValues = handlPrice(filters)
+      newFilters[category] = priceValues
+    }
+
+    showFilteredResults(newFilters);
+    setFilters(newFilters);
+  };
 
   return (
     <div style={{ width: "100%", margin: "3rem auto" }}>
@@ -103,11 +118,23 @@ function MenuLandingPage() {
 
       {/* Filter */}
 
+      <Row gutter={[16, 16]}>
+        {/*CheckBox */}
+        <Col lg={12} xs={24}>
+          <Checkbox
+            list={foods}
+            handleFilters={(filters) => handleFilters(filters, "foods")}
+          />
+        </Col>
 
-      {/*CheckBox */}
-      <Checkbox list= {foods} handleFilters={filters => handleFilters(filters,"foods")}/>
-
-      {/*RadioBox */}
+        {/*RadioBox */}
+        <Col lg={12} xs={24}>
+          <RadioBox 
+            list={price}
+            handleFilters={(filters) => handleFilters(filters, "price")}
+          />
+        </Col>
+      </Row>
 
       {/* Search */}
 
@@ -116,11 +143,11 @@ function MenuLandingPage() {
       <Row gutter={[16, 16]}>{renderCards}</Row>
 
       <br />
-      {PostSize >= Limit && 
+      {PostSize >= Limit && (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <button onClick={loadMoreHandler}> Show more </button>
         </div>
-      }
+      )}
     </div>
   );
 }
