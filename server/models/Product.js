@@ -41,6 +41,17 @@ const productSchema = mongoose.Schema({
 
 },{timestamps:true});
 
+//Contorl search results
+productSchema.index({
+    title:'text',
+    description:'text'
+}, { // Give a weight to more focus on title
+    weights: {
+        title: 5,
+        description: 1
+    }
+});
+
 
 const Product = mongoose.model('Product', productSchema);
 

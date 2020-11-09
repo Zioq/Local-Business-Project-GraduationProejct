@@ -4,6 +4,7 @@ import { Icon, Card, Col, Row } from "antd";
 import ImageSlider from "../../components/Utils/ImageSlider";
 import Checkbox from "./Sections/CheckBox";
 import RadioBox from "./Sections/RadioBox";
+import SearchFeature from "./Sections/SearchFeature";
 import { foods, price } from "./Sections/Datas";
 
 //To get the data from DB, use axios
@@ -20,6 +21,7 @@ function MenuLandingPage() {
     foods: [],
     price: [],
   });
+  const [SearchTerm, setSearchTerm] =useState("");
 
   useEffect(() => {
     // To make a body make rendering 8 items at first
@@ -108,6 +110,20 @@ function MenuLandingPage() {
     setFilters(newFilters);
   };
 
+  const updateSearchTerm = (newSearchTerm) => {
+    
+    let body = {
+      skip: 0,
+      limit: Limit,
+      filter: Filters,
+      searchTerm: newSearchTerm
+    }
+
+    setSkip(0)
+    setSearchTerm(newSearchTerm);
+    getProducts(body)
+  }
+
   return (
     <div style={{ width: "100%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
@@ -137,7 +153,12 @@ function MenuLandingPage() {
       </Row>
 
       {/* Search */}
-
+      <div style={{display: 'flex', justifyContent: 'flex-end', 'margin': "1rem auto"}}>
+        <SearchFeature 
+          searchRefresh = {updateSearchTerm}
+        />
+      </div>
+      
       {/* Card */}
 
       <Row gutter={[16, 16]}>{renderCards}</Row>

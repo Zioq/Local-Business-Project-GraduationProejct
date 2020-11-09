@@ -47,41 +47,60 @@ router.post("/products", (req, res) => {
   // get the body what send from front-end
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
   let skip = req.body.skip ? parseInt(req.body.skip) : 0;
+  let term = req.body.searchTerm;
 
   let findArgs = {};
-  for(let key in req.body.filters) {
-
-    if(req.body.filters[key].length > 0) {
-
+  for (let key in req.body.filters) {
+    if (req.body.filters[key].length > 0) {
       console.log("key", key);
-      if(key === "price") {
+      if (key === "price") {
         findArgs[key] = {
           //greate than equal
           $gte: req.body.filters[key][0],
           //less than equal
-          $lte: req.body.filters[key][1]
-        }
+          $lte: req.body.filters[key][1],
+        };
       } else {
-        findArgs[key] = req.body.filters[key]
+        findArgs[key] = req.body.filters[key];
       }
     }
-  } 
+  }
 
-  console.log('findArgs',findArgs);
+  console.log("findArgs", findArgs);
 
-  // Get all data from product collection
-  // Find all data from `Product` collection
-  Product.find(findArgs)
-    .skip(skip)
-    .limit(limit)
-    .exec((err, productInfo) => {
-      if (err) return res.status(400).json({ success: false, err });
-      
-      return res.status(200).json({
-        success: true, productInfo,
-        postSize: productInfo.length
+  //If there is data from search input
+  if (term) {
+    // Get all data from product collection by User search `term`
+    // Find all data from `Product` collection
+    Product.find(findArgs)
+      .find({ $text: { $search: term } })
+      .skip(skip)
+      .limit(limit)
+      .exec((err, productInfo) => {
+        if (err) return res.status(400).json({ success: false, err });
+
+        return res.status(200).json({
+          success: true,
+          productInfo,
+          postSize: productInfo.length,
+        });
       });
-    });
+  } else {
+    // Get all data from product collection
+    // Find all data from `Product` collection
+    Product.find(findArgs)
+      .skip(skip)
+      .limit(limit)
+      .exec((err, productInfo) => {
+        if (err) return res.status(400).json({ success: false, err });
+
+        return res.status(200).json({
+          success: true,
+          productInfo,
+          postSize: productInfo.length,
+        });
+      });
+  }
 });
 
 module.exports = router;
