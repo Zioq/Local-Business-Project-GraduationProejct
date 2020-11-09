@@ -52,7 +52,6 @@ class WeatherAPI extends Component {
   render() {
     return (
       <>
-        <h3>Welcome to Guu garden! </h3>
         <RenderingHTML
           temperature={this.state.temperature}
           weather={this.state.weather}
