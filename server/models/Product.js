@@ -4,6 +4,11 @@ const Schema  = mongoose.Schema;
 //Design Product MongoDB Schema
 const productSchema = mongoose.Schema({
   
+    writer: {
+        type:Schema.Types.ObjectId,
+        ref: 'User'
+    },
+
     title: {
         type:String,
         maxlength:50

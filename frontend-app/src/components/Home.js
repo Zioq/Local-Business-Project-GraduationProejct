@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import WeatherAPI from "./Home/WeatherAPI";
-import bgImage from "../Images/main.png";
 import MenuSlice from "./Home/MenuSlide";
+import MenuLandingPage from "./MenuLandingPage/MenuLandingPage";
 
 class Home extends Component {
   state = {
@@ -13,6 +13,7 @@ class Home extends Component {
       <>
         <WeatherAPI />
         <MenuSlice />
+        <MenuLandingPage />
       </>
     );
   }
