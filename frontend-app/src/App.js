@@ -20,6 +20,7 @@ import Menu from "./components/Menu/MenuView";
 import Login from "./components/LoginPage/LoginPage";
 import Register from "./components/RegisterPage/RegisterPage";
 import UploadProductPage from "./components/UploadProductPage/UploadProductPage";
+import DetailProductPage from "./components/DetailProductPage/DetailProductPage";
 
 //Voice Recognition
 
@@ -44,6 +45,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/product/upload" component= {UploadProductPage} />
+            <Route path="/product/:productId" component= {DetailProductPage} />
 
           </Switch>
         </Router>

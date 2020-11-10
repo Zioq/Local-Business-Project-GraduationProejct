@@ -77,7 +77,7 @@ router.post("/products", (req, res) => {
       .skip(skip)
       .limit(limit)
       .exec((err, productInfo) => {
-        if (err) return res.status(400).json({ success: false, err });
+        if (err) return res.status(400).json({ success: false, err }); 
 
         return res.status(200).json({
           success: true,
@@ -102,5 +102,21 @@ router.post("/products", (req, res) => {
       });
   }
 });
+
+
+// Get the Product info by Product_id
+router.get("/products_by_id", (req, res) => {
+
+  let type = req.query.type;
+  let productId = req.query.id;
+
+  Product.find({_id:productId})
+    .exec((err,product)=> {
+      if(err) return res.status(400).send(err);
+      return res.status(200).send({success:true, product});
+    })
+
+});
+
 
 module.exports = router;
