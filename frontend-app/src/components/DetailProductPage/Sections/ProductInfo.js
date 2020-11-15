@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Descriptions } from "antd";
 function ProductInfo(props) {
   const clickHandler = () => {
-
+    // Add  necessary data into Cart field
     
   };
 
