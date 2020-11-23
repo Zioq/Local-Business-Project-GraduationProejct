@@ -19,9 +19,13 @@ let tableSchema = new mongoose.Schema({
     location: {
         type: String,
         maxlength:50
+    },
+    reservation: {
+        required: false,
+        type: reservationSchema
     }
 
-})
+});
 
 let Table = mongoose.model("Table",tableSchema);                                     
 module.exports = {Table};

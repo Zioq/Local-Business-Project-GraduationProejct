@@ -33,12 +33,10 @@ const productSchema = mongoose.Schema({
         type:Number,
         default:0
     },
-
-    foods: {
+    foodtype: {
         type:Number,
         default:1
     },
-
 },{timestamps:true});
 
 //Contorl search results

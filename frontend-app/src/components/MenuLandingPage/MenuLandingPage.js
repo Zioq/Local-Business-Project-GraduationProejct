@@ -18,7 +18,7 @@ function MenuLandingPage() {
   const [Limit, setLimit] = useState(8);
   const [PostSize, setPostSize] = useState(0);
   const [Filters, setFilters] = useState({
-    foods: [],
+    foodtype: [],
     price: [],
   });
   const [SearchTerm, setSearchTerm] =useState("");
@@ -139,7 +139,7 @@ function MenuLandingPage() {
         <Col lg={12} xs={24}>
           <Checkbox
             list={foods}
-            handleFilters={(filters) => handleFilters(filters, "foods")}
+            handleFilters={(filters) => handleFilters(filters, "foodtype")}
           />
         </Col>
 

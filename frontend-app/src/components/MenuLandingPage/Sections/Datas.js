@@ -4,11 +4,15 @@ const foods = [
         "name": "Food"
     },
     {
-        _id:2,
-        "name": "Drink"
+        "_id":2,
+        "name": "Soft Drink"
     },
     {
-        _id:3,
+        "_id":3,
+        "name":"Alcohol"
+    },
+    {
+        "_id":4,
         "name":"Vegetarian"
     }
 ]

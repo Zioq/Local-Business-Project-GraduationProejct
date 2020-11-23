@@ -19,13 +19,15 @@ mongoose
   .catch((err) => console.log(err));
 
 // Use body-parser & cookie-parser as MIDDLE-WARE
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routing test
 app.get("/", (req, res) => {
-    res.json("I am happy to deploy our application");
+    res.json("Test Rounting");
   });
   
 
@@ -123,8 +125,8 @@ app.use('/uploads', express.static('uploads'));
 
 
 //Routers for reservation
-app.use("/availability", require("./routes/availability"));
-app.use("/reservation", require("./routes/reservation"));
+app.use("/api/availability", require("./routes/availability"));
+app.use("/reserve", require("./routes/reservation"));
 
 //Instead of localhost 5000, use heroku
 //app.listen(5000);
