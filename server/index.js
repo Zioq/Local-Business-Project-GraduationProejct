@@ -119,14 +119,7 @@ app.use('/api/table', require("./routes/table"));
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
 
-//Routers for Table
-//app.use("/api/tables", require("./routes/table"));
-//app.use('/api/table', require('./routes/table'));
 
-
-//Routers for reservation
-app.use("/api/availability", require("./routes/availability"));
-app.use("/reserve", require("./routes/reservation"));
 
 //Instead of localhost 5000, use heroku
 //app.listen(5000);

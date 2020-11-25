@@ -19,7 +19,6 @@ function UploadProductPage(props) {
   const [TitleValue, setTitleValue] = useState("");
   const [DescriptionValue, setDescriptionValue] = useState("");
   const [PriceValue, setPriceValue] = useState(0);
-  const [ContinentValue,setContinentValue] = useState(1);
   const [Images, setImages] = useState([]);
   const [FoodValue,setFoodValue] = useState(1);
 
@@ -36,9 +35,6 @@ function UploadProductPage(props) {
     setPriceValue(event.currentTarget.value);
   };
 
-  const onContinentsSelectChange = (event) => {
-    setContinentValue(event.currentTarget.value);
-  }
 
   const updateImages = (newImages) => {
     setImages(newImages);
@@ -51,7 +47,7 @@ function UploadProductPage(props) {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    if(!TitleValue ||!DescriptionValue || !PriceValue || !ContinentValue || !Images || !FoodValue) {
+    if(!TitleValue ||!DescriptionValue || !PriceValue || !Images || !FoodValue) {
       return alert("Please fill up all info");
     }
 

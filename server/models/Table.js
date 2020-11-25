@@ -1,33 +1,33 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const reservationSchema = require("./Reservation").schema;
-
-let tableSchema = new mongoose.Schema({
-
-    tablename: {
-        type: String,
+//Design Table MongoDB Schema
+const tableSchema = mongoose.Schema({
+  
+    tableName: {
+        type:String,
         maxlength:50
     },
-    capacity: {
-        type: Number,
-        default: 0
+    description: {
+        type:String
     },
-    isAvailable: {
-        type: Boolean,
-        default: true
+    time: {
+        type:Number,
+        default:0
+    },
+    images: {
+        type:Array,
+        default:[]
     },
     location: {
-        type: String,
-        maxlength:50
+        type:Number,
+        default:1
     },
     reservation: {
-        required: false,
-        type: reservationSchema
+        type: Boolean,
+        default: false,
     }
+},{timestamps:true});
 
-});
+const Table = mongoose.model('Table', tableSchema);
 
-let Table = mongoose.model("Table",tableSchema);                                     
-module.exports = {Table};
-module.exports.model = Table;
-module.exports.schema = tableSchema;
+module.exports = { Table };

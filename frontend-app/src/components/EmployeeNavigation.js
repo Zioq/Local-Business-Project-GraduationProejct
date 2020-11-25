@@ -14,7 +14,7 @@ function EmployeeNavigation() {
           <Nav className="mr-auto">
             <Nav.Link href={"/Menu"}>Check Menu</Nav.Link>
             <Nav.Link href="Admin/Check_Order">Reservation Management</Nav.Link>
-            <Nav.Link href="Admin/Table_Management">Check Table</Nav.Link>
+            <Nav.Link href="/tableRegister">Table Management</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href={"/AddNewEmployee"}>Add New Employee</NavDropdown.Item>
               <NavDropdown.Item href={"/EmployeeManage"}>Employee Management</NavDropdown.Item>

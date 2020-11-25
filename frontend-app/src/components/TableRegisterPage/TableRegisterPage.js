@@ -1,131 +1,135 @@
-import React, { Component } from "react";
-import {registerTable} from "../../_actions/table";
+import React, { useState } from "react";
+import {Typography, Button, Form, Input,Radio} from 'antd';
+import FileUpload from '../Utils/FileUpload';
 import axios  from "axios";
 
-export class TableRegister extends Component {
+const {Title} = Typography;
+const {TextArea} = Input;
 
-    state= {
-        tablename:"",
-        capacity:"",
-        isAvailable:true,
-        location: ""
+const Location = [
+  { key: 1, value: "Patio" },
+  { key: 2, value: "Bar" },
+  { key: 3, value: "Inside" },
+];
+
+function UploadTablePage(props) {
+
+
+  const [TableName, setTableName] = useState("");
+  const [DescriptionValue, setDescriptionValue] = useState("");
+  const [Time, setTime] = useState(0);
+  const [Images, setImages] = useState([]);
+  const [LocationValue,setLocationValue] = useState(1);
+  const [Reservation,setReservation] = useState(false);
+
+
+  const onTableChange = (event) => {
+    setTableName(event.currentTarget.value);
+  };
+
+  const onDescriptionChange = (event) => {
+    setDescriptionValue(event.currentTarget.value);
+  };
+
+  const onTimeChange = (event) => {
+    setTime(event.currentTarget.value);
+  };
+
+
+  const updateImages = (newImages) => {
+    setImages(newImages);
+  }
+
+  const handleChange = (event) => {
+    setLocationValue(event.target.value);
+  }
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+
+    if(!TableName ||!DescriptionValue || !Time || !Images || !LocationValue) {
+      return alert("Please fill up all info");
     }
 
-    handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
-      };
+    // Send fillled out data to server by request
+    const body = {
 
-      submitForm = (event) => {
-        event.preventDefault();
-        let dataToSubmit = {
-            tablename: this.state.tablename,
-            capacity: this.state.capacity,
-            isAvailable: this.state.isAvailable,
-            location: this.state.location,
-        };
+      tableName: TableName,
+      description: DescriptionValue,
+      time: Time,
+      images: Images,
+      location: LocationValue,
+      reservation: Reservation
+    };
 
-        console.log(dataToSubmit);
-        //this.props.dispatch(registerTable(dataToSubmit))
-        axios.post("/api/table",dataToSubmit)
-        .then(response=> {
-            console.log(response);
-            if(response.data.success) {
-                this.props.history.push('/');
-            } else {
-                console.log("Fail to send data to BD");
-            }
-        })
-        .catch(err=> {
-            console.log(err);
-        });
-      };
-    
-  render() {
+    axios.post("/api/table",body)
+         .then(response => {
+           if(response.data.success) {
+             console.log(response.data);
+             alert("Table setting Success");
+             props.history.push("/AdminHome");
+           } else {
+             alert("Upload Failed");
+           }
+         });
+  };
 
-    return (
-      <div className="container">
-        <h2>Table register Page</h2>
-        <div className="row">
-            <form className="col s12">
 
-            {/** Table Name */}
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="tablename"
-                  value={this.state.tablename}
-                  onChange={(e) => this.handleChange(e)}
-                  id="tablename"
-                  type="text"
-                  className="validate"
-                />
-               <label className="active" htmlFor="tableName">Table Name</label>
-                <span
-                  className="helper-text"
-                  data-succeuss="right"
-                />
-              </div>
-            </div>
 
-            {/**For Table Capacity  */}
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="capacity"
-                  value={this.state.capacity}
-                  onChange={(e) => this.handleChange(e)}
-                  id="capacity"
-                  type="text"
-                  className="validate"
-                />
-                <label className="active" htmlFor="capacity">Capacity: Number</label>
-                <span
-                  className="helper-text"
-                  data-succeuss="right"
-                />
-              </div>
-            </div>
-
-            {/**For Table Location  */}
-            <div className="row">
-              <div className="input-field col s12">
-                <input
-                  name="location"
-                  value={this.state.location}
-                  onChange={(e) => this.handleChange(e)}
-                  id="location"
-                  type="text"
-                  className="validate"
-                  text="test"
-                />
-                <label className="active" htmlFor="capacity">Location: Inside, Bar, or Patio</label>
-                <span
-                  className="helper-text"
-                  data-succeuss="right"
-                />
-              </div>
-            </div>
-
-            {/**Submit Button */}
-            <div className="row">
-              <div className="col s12">
-                <button
-                  className="btn waves-effect blue lighten-2"
-                  type="submit"
-                  name="action"
-                  onClick={this.submitForm}
-                >
-                  Setting Table
-                </button>{" "}
-                &nbsp; &nbsp;
-              </div>
-            </div>
-
-            </form>
+  return (
+    <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <Title level={2}>Add New Table Location</Title>
         </div>
-      </div>
-    );
-  }
+
+
+        <Form onSubmit={submitHandler} >
+
+            {/* DropZone */}
+            <FileUpload refreshFunction={updateImages}/>
+         
+            <br />
+
+            <label>Table Name</label>
+            <Input
+                onChange={onTableChange}
+                value={TableName}
+            />
+            <br />
+
+            <label>Description</label>
+            <TextArea
+                onChange={onDescriptionChange}
+                value={DescriptionValue}
+            />
+            <br />
+
+            <label>Time setting (Pm)</label>
+            <Input
+                onChange={onTimeChange}
+                value={Time}
+                type="number"
+            />
+            <br />
+
+            <label>Table Location</label>
+            <br />
+            <Radio.Group onChange={handleChange} value={LocationValue}>
+                  {Location.map(spot=>(
+                    <Radio key={spot.key} value={spot.key}> {spot.value}</Radio>
+                  ))}
+            </Radio.Group>
+         
+            <br />
+            <br />
+            <Button onClick={submitHandler}>
+                Submit
+            </Button>
+
+        </Form>
+
+    </div>
+)
 }
 
-export default TableRegister;
+export default UploadTablePage;
