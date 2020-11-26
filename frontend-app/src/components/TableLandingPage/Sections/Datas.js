@@ -33,13 +33,8 @@ const time = [
     {  
         "_id":3,
         "name":  "8PM ~ 10PM",
-        "array": [8, 9.9]
+        "array": [8, 9.9] 
     },
-    {
-        "_id":4,
-        "name" : "",
-        "array": [30, 39]
-    }
 ];
 
 export {

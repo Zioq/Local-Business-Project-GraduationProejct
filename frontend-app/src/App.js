@@ -22,6 +22,7 @@ import Register from "./components/RegisterPage/RegisterPage";
 import UploadProductPage from "./components/UploadProductPage/UploadProductPage";
 import DetailProductPage from "./components/DetailProductPage/DetailProductPage";
 import TableRegister from "./components/TableRegisterPage/TableRegisterPage";
+import TableLandingPage from "./components/TableLandingPage/TableLandingPage";
 
 //Voice Recognition
 
@@ -35,7 +36,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Home" component={Home} />
-            <Route path="/Reservation" component={ReservationPage} />
+            <Route path="/Reservation" component={TableLandingPage} />
             <Route path="/Table" component={Table} />
             <Route path="/Admin" component={Admin} />
             <Route path="/AdminHome" component={AdminHome} />
