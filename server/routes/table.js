@@ -77,6 +77,7 @@ router.post("/tables", (req, res) => {
   // Get all data from product collection
   // Find all data from `Table` collection with findArgs(`location` field)
   Table.find(findArgs)
+    .find({reservation:false})
     .skip(skip)
     .limit(limit)
     .exec((err, tableInfo) => {
