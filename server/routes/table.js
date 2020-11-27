@@ -100,5 +100,17 @@ router.get("/tables_by_id", (req,res)=> {
     });
 });
 
+// Change Table reservation info by  Table_id 
+router.put("/confirmReservation", (req,res)=> {
+  let tableId = req.body.tableId;
+  let tableName =req.body.tableName;
+  let reservationTime = req.body.reservationTimel;
+
+  Table.findOneAndUpdate({_id:tableId, tableName: tableName, reservationTime:reservationTime}, {$set:{reservation:true}}, {new:true}, (err,info)=>{
+    if(err) return res.status(400).send(err)
+    return res.status(200).send({success:true})
+  })
+})
+
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import ImageGallery from "react-image-gallery";
 
-function ProductImage(props) {
+function TableImage(props) {
 
 
     const [Images, setImages] = useState([])
@@ -29,4 +29,4 @@ function ProductImage(props) {
     )
 }
 
-export default ProductImage
+export default TableImage

@@ -10,8 +10,6 @@ const config  = require("./config/key");
 const { User } = require("./models/user");
 const { auth } = require("./middleware/auth");
 
-const  {Table} =require("./models/Table");
-
 //Connect Back-end Local host 5000 with MongoDB
 mongoose
   .connect(config.mongoURI, { useNewUrlParser: true })
@@ -114,6 +112,7 @@ app.get("/api/users/logout", auth,(req,res)=> {
 //Use Router to seperate a lot of request (check 'routes' folder)
 app.use('/api/product', require('./routes/product'));
 app.use('/api/table', require("./routes/table"));
+app.use('/api/makereservation', require("./routes/reservation"));
 
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client

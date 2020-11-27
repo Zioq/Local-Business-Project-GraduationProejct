@@ -1,39 +1,23 @@
-var express = require('express');
-var router = express.Router();
-const mongoose = require('mongoose');
+const express = require("express");
+const router = express.Router();
+const { Reservation } = require("../models/Reservation");
 
-const Day = require("../models/Day").model;
-const Reservation = require("../models/Reservation").model;
+//=================================
+//             Reservation
+//=================================
 
+router.post("/", (req, res) => {
+  console.log(req.body);
 
-router.post('/', function(req, res, next) {
-    Day.find({ date: req.body.date }, (err, days) => {
-      if (!err) {
-        if (days.length > 0) {
-          let day = days[0];
-          day.tables.forEach(table => {
-            if (table._id == req.body.table) {
-              // The correct table is table
-              table.reservation = new Reservation({
-                name: req.body.name,
-                phone: req.body.phone,
-                email: req.body.email
-              });
-              table.isAvailable = false;
-              day.save(err => {
-                if (err) {
-                  console.log(err);
-                } else {
-                  console.log("Reserved");
-                  res.status(200).send("Added Reservation");
-                }
-              });
-            }
-          });
-        } else {
-          console.log("Day not found");
-        }
-      }
+  const reservation = new Reservation(req.body);
+
+  reservation.save((err, doc) => {
+    if (err) return res.json({ success: false, err });
+    console.log(req.body);
+    return res.status(200).json({
+      success: true,
     });
   });
+});
+
 module.exports = router;

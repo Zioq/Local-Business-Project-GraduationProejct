@@ -1,16 +1,30 @@
-/**
- * [Reservation Schema Design For Reservation]
- */
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose");
+//Design Table MongoDB Schema
+const reservationSchema = mongoose.Schema({
+  
+    customerName: {
+        type:String,
+        maxlength:50
+    },
+    customerPhone: {
+        type:String
+    },
+    specialOrder: {
+        type:String,
+        maxlength:500
+    },
+    tableId: {
+        type:String,
+    },
+    tableName: {
+        type:String,
+    },
+    reservationTime: {
+        type:String,
+    }
+},{timestamps:true});
 
-let reservationSchema = new mongoose.Schema({
-    name: String,
-    phone: String,
-    email: String
-})
+const Reservation = mongoose.model('Reservation', reservationSchema);
 
-let Reservation = mongoose.model("Reservation",reservationSchema);                                     
-
-module.exports.model = Reservation;
-module.exports.schema = reservationSchema;
+module.exports = { Reservation };
