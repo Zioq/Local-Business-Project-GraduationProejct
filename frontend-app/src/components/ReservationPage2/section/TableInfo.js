@@ -50,7 +50,7 @@ function TableInfo(props) {
       if(response.data.success) {
         console.log(response.data);
         //alert("Reservation Success");
-        ;
+        
       } else {
         alert("Reservation Failed");
       }
@@ -90,7 +90,7 @@ function TableInfo(props) {
         <Input onChange={onNameChange} value={NameValue} />
         <lable>Phone Number</lable>
         <Input onChange={onPhoneNumberChange} value={PhoneValue} />
-        <lable>Special Memo</lable>
+        <label>Speical Meno</label>
         <TextArea onChange={onSpecialChange} value={SpecialValue} />
         <br />
       </div>

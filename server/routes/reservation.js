@@ -20,4 +20,34 @@ router.post("/", (req, res) => {
   });
 });
 
+router.post("/list",(req,res)=> {
+  Reservation.find()
+  .exec((err,info)=> {
+    if(err) {
+    return res.status(400).send(err);
+    } else {
+        return res.status(200).json({
+            success: true,
+            info
+        });
+    }
+}); 
+});
+
+router.post("/cancel",(req,res)=> {
+  Reservation.findOneAndDelete({
+    _id:req.body._id
+  })
+  .exec((err,info)=>{
+    if(err) {
+        return res.status(400).send(err)
+    } else {
+        res.status(200).json({
+            success: true,
+            info
+        })
+    }
+})
+})
+
 module.exports = router;

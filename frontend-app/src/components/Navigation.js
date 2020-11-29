@@ -12,8 +12,8 @@ function Navigation() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="/Reservation">Reservation</Nav.Link>
-            <Nav.Link href="/Table">Table</Nav.Link>
+            <Nav.Link href="/Reservation">Make a Reservation</Nav.Link>
+            <Nav.Link href="/Checkreservation">Check today Reservation</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Menu</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

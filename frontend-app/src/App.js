@@ -22,7 +22,8 @@ import DetailProductPage from "./components/DetailProductPage/DetailProductPage"
 import TableRegister from "./components/TableRegisterPage/TableRegisterPage";
 import TableLandingPage from "./components/TableLandingPage/TableLandingPage";
 import ReservationPage from "./components/ReservationPage2/ReservationPage";
-
+import ReservationListPage from "./components/reservationListPage/ReservationListPage";
+import ReservationListManagementPage from "./components/reservationListPage/ReservationListManagementPage";
 //Voice Recognition
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/Home" component={Home} />
+            <Route path="/reservationManagement" component={ReservationListManagementPage} />
             <Route path="/Reservation" component={TableLandingPage} />
             <Route path="/Admin" component={Admin} />
             <Route path="/AdminHome" component={AdminHome} />
@@ -48,6 +50,7 @@ function App() {
             <Route path="/product/:productId" component= {DetailProductPage} />
             <Route path="/table/:tableId" component ={ReservationPage} />
             <Route path="/tableRegister" component= {TableRegister} />
+            <Route path="/Checkreservation" component={ReservationListPage}/>
 
 
           </Switch>
