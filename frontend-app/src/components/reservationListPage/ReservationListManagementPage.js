@@ -47,6 +47,7 @@ function ReservationListManagementPage() {
                 <td>{reservation.tableName}</td>
                 <td>{reservation.reservationTime}( Pm)</td>
                 <td>{reservation.customerName}</td>
+                <td>{reservation.customerPhone}</td>
                 <td><Button size="large" shape="round" type="danger" onClick={()=>cancelReservation(reservation._id)}>Cancel the reservation</Button></td>
 
             </tr>
@@ -63,6 +64,7 @@ function ReservationListManagementPage() {
                 <th>Table Name</th>
                 <th>Reservation Time</th>
                 <th>Customer Name</th>
+                <th>Customer Phone Number</th>
                 <th>Cancel the reservation</th>
             </tr>
             </thead>
