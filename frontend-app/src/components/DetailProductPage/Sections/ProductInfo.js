@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Descriptions, Typography, Input, InputNumber,Select } from "antd";
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -8,6 +9,8 @@ const { Option } = Select;
 
 
 function ProductInfo(props) {
+
+  const history = useHistory();
 
   const [TableName, setTableName] = useState("");
   const [NumberOrder, setNumberOrder] = useState(1);
@@ -46,7 +49,7 @@ function ProductInfo(props) {
     if(response.data.success) {
       console.log(response.data);
       alert("Make order success! Servers will be come to you to make final confrim!");
-      
+      history.goBack();
     } else {
       alert("Order failed call the manager or server");
     }

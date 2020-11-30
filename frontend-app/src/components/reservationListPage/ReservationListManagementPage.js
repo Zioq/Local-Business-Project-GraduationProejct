@@ -2,6 +2,7 @@ import React,{ useEffect, useState} from 'react';
 import axios from "axios";
 import "./reservationListPage.css";
 import {Button} from "antd";
+import EmployeeNavigation from "../EmployeeNavigation";
 
 function ReservationListManagementPage() {
 
@@ -55,7 +56,8 @@ function ReservationListManagementPage() {
     })
 
     return (
-        <div style={{width:"85%", margin: '3rem auto'}}>
+        <div style={{width:"100%", margin: '1rem auto'}}>
+        <EmployeeNavigation />
         <h3>Today Reservation List</h3>
         
         <table>

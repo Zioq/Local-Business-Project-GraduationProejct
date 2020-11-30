@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Button, Descriptions, Typography, Input } from "antd";
 import axios from "axios";
+import { useHistory } from 'react-router-dom';
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
 function TableInfo(props) {
+
+  const history = useHistory();
+
   const [NameValue, setNameValue] = useState("");
   const [PhoneValue, setPhoneValue] = useState("");
   const [SpecialValue, setSpecialValue] = useState("");
@@ -61,6 +65,8 @@ function TableInfo(props) {
       if(response.data.success) {
         console.log("Reservation Confirm", response.data)
         alert("Reservation Success");
+        history.goBack();
+
       } else {
         alert("Reservation Failed");
       }

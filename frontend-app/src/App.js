@@ -44,7 +44,7 @@ function App() {
             <Route path= "/EmployeeManage" component={EmployeeManage} />
             <Route path= "/AddNewEmployee" component={AddNewEmployee} />
             <Route path="/edit/:id" component={EmployeeEdit} />
-            <Route path="/Menu" component={OrderListPage} />
+            <Route path="/CheckOrder" component={OrderListPage} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/product/upload" component= {UploadProductPage} />

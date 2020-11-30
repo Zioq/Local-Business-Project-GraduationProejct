@@ -14,17 +14,7 @@ function Navigation() {
             <Nav.Link href="/Home">Home</Nav.Link>
             <Nav.Link href="/Reservation">Make a Reservation</Nav.Link>
             <Nav.Link href="/Checkreservation">Check today Reservation</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Menu</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Make Order
-              </NavDropdown.Item>
-              <NavDropdown.Item href= "#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+            
           </Nav>
           <Nav>
             <Nav.Link href="/login">Employee</Nav.Link>

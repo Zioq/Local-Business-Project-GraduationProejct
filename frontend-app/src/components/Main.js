@@ -44,7 +44,7 @@ function Main() {
   }
 
   function goToTable() {
-    window.location = "http://localhost:3000/Table";
+    window.location = "http://localhost:3000/Checkreservation";
   }
 
   useEffect(()=>{

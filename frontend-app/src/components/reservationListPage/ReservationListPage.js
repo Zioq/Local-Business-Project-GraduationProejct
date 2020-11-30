@@ -2,8 +2,11 @@ import React,{ useEffect, useState} from 'react';
 import axios from "axios";
 import "./reservationListPage.css";
 import {Icon} from "antd";
+import { useHistory } from 'react-router-dom';
 
 function ReservationListPage() {
+
+    const histroy = useHistory();
 
     const [ReservationList, setReservationList] = useState([]);
 
@@ -19,7 +22,7 @@ function ReservationListPage() {
             if(response.data.success) {
                 console.log(response.data);
                 setReservationList(response.data.info);
-
+                
             }else {
                 alert("Failed to get the response data ");
             }

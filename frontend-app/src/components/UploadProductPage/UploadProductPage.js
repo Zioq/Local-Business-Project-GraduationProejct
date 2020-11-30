@@ -89,7 +89,7 @@ function UploadProductPage(props) {
          
             <br />
 
-            <label>Title</label>
+            <label>Munu Name</label>
             <Input
                 onChange={onTitleChange}
                 value={TitleValue}
