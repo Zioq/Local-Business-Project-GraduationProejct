@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 //Design Table MongoDB Schema
 const orderSchema = mongoose.Schema({
   
+    projectId: {
+        type: String
+    },
     tableName: {
         type:String,
         maxlength:50

@@ -32,6 +32,7 @@ function ProductInfo(props) {
 
     //Information for order to send request
   const body = {
+    productId: props.detail._id,
     tableName: TableName,
     numOfOrder:NumberOrder,
     specialOrder: SpecialValue,

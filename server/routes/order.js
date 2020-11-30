@@ -19,4 +19,38 @@ router.post("/makeorder", (req, res) => {
   });
 });
 
+router.post("/list",(req,res) => {
+  Order.find({confirmOrder:false})
+  .exec((err,info)=> {
+    if(err) {
+    return res.status(400).send(err);
+    } else {
+        return res.status(200).json({
+            success: true,
+            info
+        });
+    }
+}); 
+});
+
+router.post("/confirm",(req,res)=> {
+
+  
+  Order.findOneAndUpdate({_id:req.body.orderId},{$set:{confirmOrder:true}}, {new:true}, (err,info) => {
+    if(err) return res.status(400).send(err);
+    res.status(200).json({
+      success: true,
+      info
+    });
+  })
+})
+
+router.post("/cancel",(req,res)=> {
+  Order.findOneAndDelete({_id:req.body.orderId})
+  .exec((err,info)=> {
+    if(err) return res.status(400).send(err)
+    res.status(200).json({success:true, info})
+  })
+})
+
 module.exports = router;
