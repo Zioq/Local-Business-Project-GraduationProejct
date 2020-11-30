@@ -3,34 +3,36 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
 import { PostData } from "../services/PostData";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       passcode: "",
-      passcodePassword: "",
+      password: "",
       redirect: false
     };
     this.login = this.login.bind(this);
     this.onChangePasscode = this.onChangePasscode.bind(this);
-    this.onChangePasscodePassword = this.onChangePasscodePassword.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
   }
 
   login(e) {
-    if (this.state.passcode && this.state.passcodePassword) {
-      PostData("login", this.state).then((result) => {
-        let responseJSON = result;
-        console.log(responseJSON);
-        if (responseJSON.userData) {
-          sessionStorage.setItem('userData',responseJSON );
-          this.setState({redirect:true});
 
-        } else {
-          console.log("Login Failed");
-          alert("Login Failed");
-        }
-      });
+    if (this.state.passcode && this.state.password) {
+
+      const body = this.state;
+      axios.post("/api/employee/login",body)
+        .then((response)=> {
+          if(response.data.success) {
+            console.log("Log data",response.data);
+            this.setState({redirect:true});
+          } else {
+            console.log(response.data);
+            alert("Check your passcode");
+          }
+        });
     } else {
       alert("Enter your passcode and passcodepassword");
     }
@@ -45,9 +47,9 @@ class Login extends Component {
     });
   }
 
-  onChangePasscodePassword(e) {
+  onChangePassword(e) {
     this.setState({
-      passcodePassword: e.target.value,
+      password: e.target.value,
     });
   }
 
@@ -79,7 +81,7 @@ class Login extends Component {
           <Form.Control
             type="password"
             placeholder="Password"
-            onChange={this.onChangePasscodePassword}
+            onChange={this.onChangePassword}
           />
         </Form.Group>
         <Button

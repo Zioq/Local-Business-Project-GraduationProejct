@@ -56,17 +56,23 @@ class EmployeeInsert extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const obj = {
-            name: this.state.name,
-            position: this.state.position,
-            phone:this.state.phone,
-            passcode:this.state.passcode
+       
+
+        const body = {
+          name: this.state.name,
+          position: this.state.position,
+          phonenumber:this.state.phone,
+          passcode:this.state.passcode,
+          passcodeconfirm:this.state.passcode,
         };
 
         //console.log(obj);
         // change the post url as a your webserver location.
-        axios.post('http://localhost:8888/reactJsCRUD/EmployeeCRUD/insert.php',obj)
-        .then(res => console.log(res.data));
+        axios.post('/api/employee/addEmployee',body)
+        .then(res => {
+          console.log(res.data);
+          alert("Add new Employee Successfully");
+        });
 
         this.setState({
             name:"",
@@ -74,6 +80,7 @@ class EmployeeInsert extends Component {
             phone:"",
             passcode: ""
         });
+     
     }
 
   render() {
