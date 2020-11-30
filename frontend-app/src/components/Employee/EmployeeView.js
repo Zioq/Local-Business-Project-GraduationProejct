@@ -1,48 +1,82 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import RecordsList from './RecordsList';
-class EmployeeView extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {employees:[]};
-    }
+import { Button } from "antd";
+import EmployeeNavigation from "../EmployeeNavigation";
 
-    componentDidMount() {
-        axios.get('http://localhost:8888/reactJsCRUD/EmployeeCRUD/list.php')
-         .then(response=> {
-             this.setState( {employees:response.data});
-         })
-         .catch(function (error) {
-             console.log(error);
-         });
-    }
 
-    userList() {
-        return this.state.employees.map(function(object, i){
-            return < RecordsList obj= {object} key={i} />;
+function EmployeeView() {
+
+    const [EmployeesList, setEmployeesList] = useState([]);
+
+    useEffect(() => {
+        fetchEmployeeList();
+    }, []);
+
+    const fetchEmployeeList = () => {
+        axios.post("/api/employee/list").then((response) => {
+          if (response.data.success) {
+            console.log(response.data);
+            setEmployeesList(response.data.info);
+          } else {
+            alert("Failed to get the response data ");
+          }
         });
-    }
+    };
 
-    render() { 
-        return (  
-            <div>
-                <h3 align ="center">Employee List</h3>
-                <table className="table table-striped" style={ {marginTop:20} }>
-                    <thead>
-                        <tr>
-                            <th>Employee Name</th>
-                            <th>Employee Position</th>
-                            <th>Employee Phone Number</th>
-                        </tr>
-                    </thead>
+    const deleteEmployee = (employeeId) => {
+        const body = {
+            _id: employeeId,
+        };
+    
+        axios.post("/api/employee/delete", body).then((response) => {
+          if (response.data.success) {
+            console.log(response.data);
+            fetchEmployeeList();
+          } else {
+            alert("Failed to get the response data ");
+          }
+        });
+      };
 
-                    <tbody>
-                         {this.userList()}
-                    </tbody>
-                </table>
-            </div>
+    const renderTableBody = EmployeesList.map((employee, index) => {
+        return (
+          <tr key={index}>
+            <td>{employee.name}</td>
+            <td>{employee.position}</td>
+            <td>{employee.phonenumber}</td>
+            <td>
+              <Button type="danger" onClick={() => deleteEmployee(employee._id)}>
+                Delete
+              </Button>
+            </td>
+          </tr>
         );
-    }
+      });
+
+
+    return (
+        <div style={{ width: "100%", margin: "1rem auto" }}>
+          <EmployeeNavigation />
+          <div style={{ textAlign: "center" }}>
+            <h5>
+              Employee List
+            </h5>
+            <br />
+          </div>
+    
+          <table>
+            <thead>
+              <tr>
+                <th>Employee Name</th>
+                <th>Employee Position</th>
+                <th>Employee Phone Number</th>
+                <th>Delete Employee Info</th>
+              </tr>
+            </thead>
+            <tbody>{renderTableBody}</tbody>
+          </table>
+        </div>
+      );
 }
- 
-export default EmployeeView;
+
+export default EmployeeView

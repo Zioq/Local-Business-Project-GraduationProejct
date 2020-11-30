@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button } from "react-bootstrap";
-import { PostData } from "../services/PostData";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
