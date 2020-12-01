@@ -25,6 +25,8 @@ import ReservationPage from "./components/ReservationPage2/ReservationPage";
 import ReservationListPage from "./components/reservationListPage/ReservationListPage";
 import ReservationListManagementPage from "./components/reservationListPage/ReservationListManagementPage";
 import OrderListPage from "./components/OrderListPage/OrderListPage";
+import MenuLandingPage from "./components/MenuLandingPage/MenuLandingPage";
+import MenuRecommandationPage from "./components/MenuRecommandationPage/MenuRecommandationPage";
 //Voice Recognition
 
 function App() {
@@ -52,6 +54,8 @@ function App() {
             <Route path="/table/:tableId" component ={ReservationPage} />
             <Route path="/tableRegister" component= {TableRegister} />
             <Route path="/Checkreservation" component={ReservationListPage}/>
+            <Route path="/Menu" component={MenuLandingPage} />
+            <Route path="/setRecommandation" component={MenuRecommandationPage} />
 
 
           </Switch>

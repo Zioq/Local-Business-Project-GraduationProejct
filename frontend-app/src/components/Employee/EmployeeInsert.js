@@ -13,6 +13,7 @@ import axios from "axios";
 
 class EmployeeInsert extends Component {
 
+
     constructor(props){
         super (props);
         this.onChangeName = this.onChangeName.bind(this);
@@ -72,6 +73,7 @@ class EmployeeInsert extends Component {
         .then(res => {
           console.log(res.data);
           alert("Add new Employee Successfully");
+
         });
 
         this.setState({

@@ -45,6 +45,52 @@ router.post("/", (req, res) => {
   });
 });
 
+router.post("/wholelist",(req,res) => {
+  Product.find()
+  .exec((err, productInfo) => {
+    if (err) return res.status(400).json({ success: false, err });
+
+    return res.status(200).json({
+      success: true,
+      productInfo,
+    });
+  });
+})
+
+router.post("/recommandation",(req,res)=> {
+  Product.findOneAndUpdate({_id:req.body._id},{$set:{recommandation:true}}, {new:true}, (err,info) => {
+    if(err) return res.status(400).send(err);
+    res.status(200).json({
+      success: true,
+      info
+    });
+  });
+});
+
+router.post("/DeleteRecommandation",(req,res)=> {
+  Product.findOneAndUpdate({_id:req.body._id},{$set:{recommandation:false}}, {new:true}, (err,info) => {
+    if(err) return res.status(400).send(err);
+    res.status(200).json({
+      success: true,
+      info
+    });
+  });
+});
+
+router.post("/recommandationList",(req,res)=> {
+  Product.find({recommandation:true})
+    .exec((err,info) =>{
+      if(err){
+        return res.status(400).send(err);
+      } else {
+        return res.status(200).json({
+          success: true,
+          info
+        });
+      }
+    });
+});
+
 router.post("/products", (req, res) => {
   // get the body what send from front-end
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;

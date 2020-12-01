@@ -37,6 +37,10 @@ const productSchema = mongoose.Schema({
         type:Number,
         default:1
     },
+    recommandation: {
+        type:Boolean,
+        default: false
+    }
 },{timestamps:true});
 
 //Contorl search results

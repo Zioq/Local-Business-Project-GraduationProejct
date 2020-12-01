@@ -12,8 +12,9 @@ function Navigation() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/Home">Home</Nav.Link>
-            <Nav.Link href="/Reservation">Make a Reservation</Nav.Link>
-            <Nav.Link href="/Checkreservation">Check today Reservation</Nav.Link>
+            <Nav.Link href="/Menu">Check Our Menu</Nav.Link>
+            <Nav.Link href="/Reservation">Make A Reservation</Nav.Link>
+            <Nav.Link href="/Checkreservation">Check Today Reservation</Nav.Link>
             
           </Nav>
           <Nav>

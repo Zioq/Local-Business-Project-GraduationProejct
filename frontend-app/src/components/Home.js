@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import WeatherAPI from "./Home/WeatherAPI";
 import MenuLandingPage from "./MenuLandingPage/MenuLandingPage";
-
+import RecommandationLandingPage from "./MenuRecommandationPage/RecommandationLandingPage";
 class Home extends Component {
   state = {
 
@@ -11,7 +11,7 @@ class Home extends Component {
     return (
       <>
         <WeatherAPI />
-        <MenuLandingPage />
+        <RecommandationLandingPage />
       </>
     );
   }
