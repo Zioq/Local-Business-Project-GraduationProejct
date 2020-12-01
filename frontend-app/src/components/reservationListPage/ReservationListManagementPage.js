@@ -1,7 +1,7 @@
-import React,{ useEffect, useState} from './node_modules/react';
-import axios from "./node_modules/axios";
+import React,{ useEffect, useState} from 'react';
+import axios from "axios";
 import "./reservationListPage.css";
-import {Button} from "./node_modules/antd";
+import {Button} from "antd";
 import EmployeeNavigation from "../EmployeeNavigation";
 
 function ReservationListManagementPage() {
