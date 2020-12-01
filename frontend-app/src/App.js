@@ -19,14 +19,15 @@ import Login from "./components/LoginPage/LoginPage";
 import Register from "./components/RegisterPage/RegisterPage";
 import UploadProductPage from "./components/UploadProductPage/UploadProductPage";
 import DetailProductPage from "./components/DetailProductPage/DetailProductPage";
-import TableRegister from "./components/TableRegisterPage/TableRegisterPage";
+import TableRegister from "./components/TableManagementPage/TableRegisterPage";
 import TableLandingPage from "./components/TableLandingPage/TableLandingPage";
 import ReservationPage from "./components/ReservationPage2/ReservationPage";
-import ReservationListPage from "./components/reservationListPage/ReservationListPage";
-import ReservationListManagementPage from "./components/reservationListPage/ReservationListManagementPage";
+import ReservationListPage from "./components/ReservationListPage/ReservationListPage";
+import ReservationListManagementPage from "./components/ReservationListPage/ReservationListManagementPage";
 import OrderListPage from "./components/OrderListPage/OrderListPage";
 import MenuLandingPage from "./components/MenuLandingPage/MenuLandingPage";
 import MenuRecommandationPage from "./components/MenuRecommandationPage/MenuRecommandationPage";
+import TableListPage from "./components/TableManagementPage/TableListPage"; 
 //Voice Recognition
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
             <Route path="/product/upload" component= {UploadProductPage} />
             <Route path="/product/:productId" component= {DetailProductPage} />
             <Route path="/table/:tableId" component ={ReservationPage} />
+            <Route path="/tableManagement" component= {TableListPage} />
             <Route path="/tableRegister" component= {TableRegister} />
             <Route path="/Checkreservation" component={ReservationListPage}/>
             <Route path="/Menu" component={MenuLandingPage} />

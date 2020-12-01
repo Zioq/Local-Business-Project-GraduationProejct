@@ -16,7 +16,8 @@ function EmployeeNavigation() {
             <Nav.Link href="/reservationManagement">
               Reservation Management
             </Nav.Link>
-            <Nav.Link href="/tableRegister">Table Management</Nav.Link>
+            <Nav.Link href="/tableManagement">Table Management</Nav.Link>
+            {/* <Nav.Link href="/tableRegister">Table Management</Nav.Link> */}
             <Nav.Link href="/setRecommandation">Set Recommandation</Nav.Link>
             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
               <NavDropdown.Item href={"/product/upload"}>

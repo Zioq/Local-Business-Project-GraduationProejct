@@ -9,7 +9,7 @@ const { Table } = require("../models/Table");
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads2/");
+    cb(null, "uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, `${Date.now()}_${file.originalname}`);
@@ -47,6 +47,28 @@ router.post("/", (req, res) => {
   });
 });
 
+router.post("/tablelist", (req, res) => {
+  Table.find().exec((err, tableInfo) => {
+    if (err) return res.status(400).json({ success: false, err });
+    return res.status(200).json({ success: true, tableInfo });
+  });
+});
+
+router.post("/tabledelete", (req, res) => {
+  Table.findOneAndDelete({
+    _id: req.body._id,
+  }).exec((err, tableInfo) => {
+    if (err) {
+      return res.status(400).send(err);
+    } else {
+      res.status(200).json({
+        success: true,
+        tableInfo,
+      });
+    }
+  });
+});
+
 router.post("/tables", (req, res) => {
   // get the body what send from front-end
   let limit = req.body.limit ? parseInt(req.body.limit) : 20;
@@ -77,7 +99,7 @@ router.post("/tables", (req, res) => {
   // Get all data from product collection
   // Find all data from `Table` collection with findArgs(`location` field)
   Table.find(findArgs)
-    .find({reservation:false})
+    .find({ reservation: false })
     .skip(skip)
     .limit(limit)
     .exec((err, tableInfo) => {
@@ -89,28 +111,31 @@ router.post("/tables", (req, res) => {
 });
 
 // Get the Table infro by Table_id
-router.get("/tables_by_id", (req,res)=> {
+router.get("/tables_by_id", (req, res) => {
   let type = req.query.type;
   let tableId = req.query.id;
 
-  Table.find({_id:tableId})
-    .exec((err,table)=> {
-      if(err) return res.status(400).send(err);
-      return res.status(200).send({success:true, table});
-    });
+  Table.find({ _id: tableId }).exec((err, table) => {
+    if (err) return res.status(400).send(err);
+    return res.status(200).send({ success: true, table });
+  });
 });
 
-// Change Table reservation info by  Table_id 
-router.put("/confirmReservation", (req,res)=> {
+// Change Table reservation info by  Table_id
+router.put("/confirmReservation", (req, res) => {
   let tableId = req.body.tableId;
-  let tableName =req.body.tableName;
+  let tableName = req.body.tableName;
   let reservationTime = req.body.reservationTimel;
 
-  Table.findOneAndUpdate({_id:tableId, tableName: tableName, reservationTime:reservationTime}, {$set:{reservation:true}}, {new:true}, (err,info)=>{
-    if(err) return res.status(400).send(err)
-    return res.status(200).send({success:true})
-  })
-})
-
+  Table.findOneAndUpdate(
+    { _id: tableId, tableName: tableName, reservationTime: reservationTime },
+    { $set: { reservation: true } },
+    { new: true },
+    (err, info) => {
+      if (err) return res.status(400).send(err);
+      return res.status(200).send({ success: true });
+    }
+  );
+});
 
 module.exports = router;
