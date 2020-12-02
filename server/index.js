@@ -60,18 +60,6 @@ app.post("/api/users/register", (req, res) => {
   });
 });
 
-/*
-app.post("/api/tables/register", (req,res) => {
-  const table  = new Table(req,body);
-
-  table.save((err) => {
-    if (err) return res.status(400).json({ success: false });
-    return res.status(200).json({ success: true });
-  });
-
-
-})
-*/
 // ROUTING FOR LOGIN
 app.post("/api/users/login", (req, res) => {
   //find a the email
@@ -114,14 +102,13 @@ app.use('/api/product', require('./routes/product'));
 app.use('/api/table', require("./routes/table"));
 app.use('/api/makereservation', require("./routes/reservation"));
 app.use('/api/order', require("./routes/order"));
-app.use('/api/employee', require('./routes/employee'))
+app.use('/api/employee', require('./routes/employee'));
 //use this to show the image you have in node js server to client (react js)
 //https://stackoverflow.com/questions/48914987/send-image-path-from-node-js-express-server-to-react-client
 app.use('/uploads', express.static('uploads'));
 
 
 
-//Instead of localhost 5000, use heroku
 //app.listen(5000);
 const port = process.env.PORT||5000
 app.listen(port,()=> {

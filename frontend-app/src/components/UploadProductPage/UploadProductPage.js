@@ -66,7 +66,7 @@ function UploadProductPage(props) {
            if(response.data.success) {
              console.log(response.data);
              alert("Upload Success");
-             props.history.push("/AdminHome");
+             props.history.push("/CheckOrder");
            } else {
              alert("Upload Failed");
            }

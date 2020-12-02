@@ -67,7 +67,7 @@ function UploadTablePage(props) {
            if(response.data.success) {
              console.log(response.data);
              alert("Table setting Success");
-             props.history.push("/AdminHome");
+             props.history.push("/CheckOrder");
            } else {
              alert("Upload Failed");
            }
