@@ -15,5 +15,13 @@ Also, for owner or manager I develop more `User-friendly UI` to manage order or 
 - type the command `npm run dev`
 - `Server` will run on localhost: 5000 (Express) and `Client` will run on localhost:3000 (React)
 
+## TroubleShotting
+
+- When your post 5000 work with other process, this app crush especially Server. 
+- please kill the all node port by this command type `pkill -f node`
+- Or restart your computer
+
+
 Author: Jaehyoen Robert Han
+
 Last update date: 12/03/2020
