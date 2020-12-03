@@ -8,12 +8,18 @@ Use a Voice Recognition, Customers able to check make reservation and check the 
 
 Also, for owner or manager I develop more `User-friendly UI` to manage order or menu.
 
+### GIT CASE SENSTIVIE PROBLEM (BEFORE RUN THIS PROGRAM, PLEASE READ THIS CAREFULLY)
+For case sensitive setting problem in the git, some of file name was changed automatically. 
+Please change some files' name under list. I'm so sorry for unconvenience.
+- Go to the file: front-end -> components -> Home. Please change the file name `renderingHTML` to `RenderingHTML`
+
 ## How to Run?
 
 - Make clone or download this file
 - In the main directory, open the terminal.
 - type the command `npm run dev`
 - `Server` will run on localhost: 5000 (Express) and `Client` will run on localhost:3000 (React)
+
 
 ## TroubleShotting
 
