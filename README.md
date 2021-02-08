@@ -8,6 +8,11 @@ Use a Voice Recognition, Customers able to check make reservation and check the 
 
 Also, for owner or manager I develop more `User-friendly UI` to manage order or menu.
 
+### GIT CASE SENSTIVIE PROBLEM (BEFORE RUN THIS PROGRAM, PLEASE READ THIS CAREFULLY)
+If you get this file through My Github Repository, there was an case sensitive setting problem in the git, some of file name was changed automatically. 
+Please change some files' name under list. I'm so sorry for unconvenience.
+- Go to the file: front-end -> components -> Home. Please change the file name `renderingHTML` to `RenderingHTML`
+
 ## How to Run?
 
 - Make clone or download this file
@@ -15,8 +20,10 @@ Also, for owner or manager I develop more `User-friendly UI` to manage order or 
 - type the command `npm run dev`
 - `Server` will run on localhost: 5000 (Express) and `Client` will run on localhost:3000 (React)
 
+
 ## TroubleShotting
 
+- If you run this in the `Linux OS`, you will faced bcrypt error. Don't worry. This app is designed in the MacOS you have to install bcrypt for Linux version. In the main directry, please typing `npm install bcrypt --save` 
 - When your post 5000 work with other process, this app crush especially Server. 
 - please kill the all node port by this command type `pkill -f node`
 - Or restart your computer
