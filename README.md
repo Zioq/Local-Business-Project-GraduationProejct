@@ -20,7 +20,7 @@ Please change some files' name under the list. I'm so sorry for the inconvenienc
 - type the command `npm run dev`
 - `Server` will run on localhost: 5000 (Express) and `Client` will run on localhost:3000 (React)
 - For the sensitive personal information security, I didn't push `dev.js` file which has private mongoURI. So if you want to run this application, please add your own dev.js file in `server>config` folder. 
-Exmaple format of dev.js
+Example format of dev.js
 ```
 module.exports  = {
     //private information in here
@@ -29,19 +29,37 @@ module.exports  = {
 ```
 
 ## Brief Explanation of Application
-### Voice recogntition
+### Voice recognition
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/voiceRecognition.png?raw=true)
+
+### Menu recommendation system
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/menuRecommendation.png?raw=true)
+
+### Menu list system
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/menuManagement.png?raw=true)
+
+### Reservation management system 
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/reservationSystem.png?raw=true)
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/reservationSystem1.png?raw=true)
+
+### Make order system
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/orderSystem.png?raw=true)
+
+### Application Architecture Diagram
+![alt text](https://github.com/Zioq/CSIS4495PresentationVersion/blob/master/img/application%20architecture%20diagram.png?raw=true)
 
 
 ## TroubleShotting
 
-- If you run this in the `Linux OS`, you will faced bcrypt error. Don't worry. This app is designed in the MacOS you have to install bcrypt for Linux version. In the main directry, please typing `npm install bcrypt --save` 
-- When your post 5000 work with other process, this app crush especially Server. 
+- If you run this in the `Linux OS`, you will face bcrypt error. Don't worry. This app is designed in MacOS you have to install bcrypt for the Linux version. In the main directory, please typing `npm install bcrypt --save` 
+- When your post 5000 work with other processes, this app crush especially Server. 
 - please kill the all node port by this command type `pkill -f node`
 - Or restart your computer
 
 
 
 ## Contributor  
-Jaehyoen Robert Han
+Developer: ***Jaehyoen Robert Han*** 
+Contact: jr.roberthan@gmail.com
 
 Last update date: 02/08/2021
