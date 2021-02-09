@@ -1,16 +1,16 @@
-CSIS4495 Applied Research Project.
+# Douglas College Applied Research Graduation Project
 
-Using a MERN Stack, I make a local restaurant's homepage to responding COVID-19.
+Using a MERN, I make a local restaurant's homepage to responding COVID-19.
 
-As the COVID-19 getting worse, strick health regulation make run a business hard.
+As the COVID-19 getting worse, strict health regulations have made run a business harder.
 
-Use a Voice Recognition, Customers able to check make reservation and check the restaurant menus.
+By adding a `Voice recognition technique`, customers are able to check to make reservations and check the restaurant menus.
 
-Also, for owner or manager I develop more `User-friendly UI` to manage order or menu.
+Also, for owner or manager, I developed a more `User-friendly UI` to manage orders or menus.
 
 ### GIT CASE SENSTIVIE PROBLEM (BEFORE RUN THIS PROGRAM, PLEASE READ THIS CAREFULLY)
-If you get this file through My Github Repository, there was an case sensitive setting problem in the git, some of file name was changed automatically. 
-Please change some files' name under list. I'm so sorry for unconvenience.
+If you get this file through My Github Repository, there was a case sensitive setting problem in the git, some of the file names were changed automatically. 
+Please change some files' name under the list. I'm so sorry for the inconvenience.
 - Go to the file: front-end -> components -> Home. Please change the file name `renderingHTML` to `RenderingHTML`
 
 ## How to Run?
@@ -19,6 +19,17 @@ Please change some files' name under list. I'm so sorry for unconvenience.
 - In the main directory, open the terminal.
 - type the command `npm run dev`
 - `Server` will run on localhost: 5000 (Express) and `Client` will run on localhost:3000 (React)
+- For the sensitive personal information security, I didn't push `dev.js` file which has private mongoURI. So if you want to run this application, please add your own dev.js file in `server>config` folder. 
+Exmaple format of dev.js
+```
+module.exports  = {
+    //private information in here
+    mongoURI : 'mongodb+srv://{yourMongoDbAtlasId}:{Password}@react-blog.jsloa.mongodb.net/test?retryWrites=true&w=majority'
+}
+```
+
+## Brief Explanation of Application
+### Voice recogntition
 
 
 ## TroubleShotting
@@ -29,6 +40,8 @@ Please change some files' name under list. I'm so sorry for unconvenience.
 - Or restart your computer
 
 
-Author: Jaehyoen Robert Han
 
-Last update date: 12/03/2020
+## Contributor  
+Jaehyoen Robert Han
+
+Last update date: 02/08/2021
